@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Courgette', cursive;
+    overflow-x: hidden;
+}
+/* navbar */
+nav{
+    display: flex;
+    background-color: salmon;
+    justify-content: space-around;
+    height: 60px;
+    align-items: center;
+    color: springgreen;
+}
+nav .logo{
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 3px;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+nav ul li a{
+    color: springgreen;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: white;
+}
+
+/* hamburger menu */
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    background-color: salmon;
+    height: 25px;
+    justify-content: space-between;
+    position: relative;
+}
+.menu-toggle input{
+    position: absolute;
+    width: 55px;
+    height: 28px;
+    opacity: 0;
+    left: -12px;
+    cursor: pointer;
+    z-index: 5;
+}
+.menu-toggle span{
+    display: block;
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 1s;
+}
+/* hamburger menu option */
+.menu-toggle span:nth-child(2){
+    background-color: red;
+    transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(3){
+    background-color: yellow;
+}
+.menu-toggle span:nth-child(4){
+    background-color: springgreen;
+    transform-origin: 0 100%;
+}
+.menu-toggle input:checked ~ span:nth-child(2){
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu-toggle input:checked ~ span:nth-child(4){
+    background-color: white;
+    transform: rotate(-45deg) translate(2px, -1px);
+}
+.menu-toggle input:checked ~ span:nth-child(3){
+    background-color: white;
+    transform: scale(0);
+}
+
+
+/* responsive breakpoin */
+
+/* ukuran tablet */
+@media screen and (max-width: 768px){
+    nav ul{
+        width: 50%;
+    }
+}
+
+/* ukuran mobile */
+@media screen and (max-width: 576px){
+    nav ul{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 55%;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        z-index: -9;
+        transform: translateX(100%);
+        transition: all 0.7s;
+        background-color: salmon;
+        opacity: 0;
+    }
+    .menu-toggle{
+        display: flex;
+    }
+    nav ul.slide{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
